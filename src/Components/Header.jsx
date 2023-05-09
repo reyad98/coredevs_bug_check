@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -13,7 +14,9 @@ export default function Header() {
           <li>
             <span className="mx-2 text-white">/</span>
           </li>
-          <li className="text-white dark:text-neutral-400">Checkout</li>
+          <li className="text-white dark:text-neutral-400">
+            <Link to="/">Checkout</Link>{" "}
+          </li>
         </ol>
       </nav>
     </div>

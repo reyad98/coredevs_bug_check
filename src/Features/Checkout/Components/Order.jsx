@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import PaymentMd from "../../../Components/Modal/PaymentMd";
+import { Link } from "react-router-dom";
 import Btn from "../../../Components/Share/Btn";
 import { useGlobalCtx } from "../../../Contexts/GlobalProvider";
 import { TbRow } from "./Handler";
@@ -9,7 +9,7 @@ const CartProducts = [
   { id: 2, product: "External SSD USB 2.1 150 GB", price: "18" },
 ];
 export default function Order() {
-  const { open, setTotalPrice, totalPrice } = useGlobalCtx();
+  const { open, setTotalPrice, totalPrice, setOpen } = useGlobalCtx();
   const total = CartProducts.reduce(
     (accumulator, currentValue) =>
       Number(accumulator) + Number(currentValue.price),
@@ -81,8 +81,9 @@ export default function Order() {
             ৳ {totalPrice} TK{" "}
           </p>
         </div>
-        <Btn>Continue to Payment</Btn>
-        {open ? <PaymentMd /> : ""}
+        <Btn>
+          <Link to="/pay">Contunie to Payment</Link>
+        </Btn>
       </div>
     </div>
   );
